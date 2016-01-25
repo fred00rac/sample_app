@@ -7,6 +7,10 @@ RSpec.describe PagesController, type: :controller do
       get :home
       expect(response).to have_http_status(:success)
     end
+    it "devrait avoir le bon titre" do
+      get :home
+      expect(response).to have_selector("title", :content =>"Accueil")
+    end
   end
 
   describe "GET #contact" do
